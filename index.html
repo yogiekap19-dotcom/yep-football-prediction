@@ -15,7 +15,6 @@
 
 <div class="kotak-utama w-full max-w-4xl rounded-2xl p-4 md:p-6 shadow-2xl">
 
-    <!-- Dropdown Menu Jadwal -->
     <div class="mb-5 border-b border-gray-800 pb-4">
         <label class="text-gray-400 text-xs font-bold tracking-widest mb-2 block uppercase">JADWAL ASLI PIALA DUNIA 2026:</label>
         <select id="pilih-match" class="bg-gray-800 text-white w-full md:w-1/2 p-2.5 rounded-lg border border-gray-700 focus:outline-none focus:border-blue-500 cursor-pointer text-sm font-semibold" onchange="gantiPertandingan()">
@@ -23,7 +22,6 @@
         </select>
     </div>
     
-    <!-- HEADER RINGKASAN KONSENSUS (Style Gambar Ke-3) -->
     <div class="card-tabel rounded-xl p-5 border border-gray-800 mb-5">
         <div class="text-center">
             <h2 class="text-yellow-500 text-xs font-bold tracking-widest mb-2 uppercase">📋 RINGKASAN KONSENSUS 4 FORMULA</h2>
@@ -41,7 +39,6 @@
                 <span id="status-keyakinan" class="text-gray-300 uppercase tracking-wider">-</span>
             </div>
 
-            <!-- Badges Distribusi Formula -->
             <div class="flex flex-wrap justify-center gap-2 text-[11px] font-bold tracking-wide">
                 <span id="badge-home" class="bg-blue-950 bg-opacity-60 text-blue-400 border border-blue-900 px-3 py-1 rounded-full">-</span>
                 <span id="badge-seri" class="bg-yellow-950 bg-opacity-60 text-yellow-500 border border-yellow-900 px-3 py-1 rounded-full">-</span>
@@ -49,13 +46,11 @@
             </div>
         </div>
 
-        <!-- TAMPILAN SKOR RAKSASA UTAMA -->
         <div id="skor-raksasa" class="text-6xl md:text-7xl font-black tracking-widest text-white my-5 text-center py-4 bg-gray-900 bg-opacity-50 rounded-xl border border-gray-800 font-mono select-none">
             0 - 0
         </div>
     </div>
 
-    <!-- TABEL DATA FORMULA + KOLOM SKOR -->
     <div class="overflow-x-auto card-tabel rounded-xl border border-gray-800 p-2 mb-5">
         <table class="w-full text-center text-xs md:text-sm">
             <thead>
@@ -71,7 +66,6 @@
         </table>
     </div>
 
-    <!-- 3 BLOK KOTAK RINGKASAN PERSENTASE BAWAH (Style Gambar Ke-3) -->
     <div class="grid grid-cols-3 gap-3 text-center font-bold text-xs">
         <div class="bg-blue-950 bg-opacity-30 border border-blue-900 border-opacity-60 rounded-xl p-3">
             <div id="bawah-nama-home" class="text-blue-400 truncate tracking-wider text-[10px] mb-1 uppercase">-</div>
@@ -111,24 +105,59 @@
                 throw new Error("EMPTY");
             }
         } catch (error) {
-            // DATABASE CADANGAN ASLI PIALA DUNIA 2026 (18 - 25 JUNI 2026)
+            // DATABASE JADWAL 100% ASLI RESMI FIFA (18 JUNI - 25 JUNI 2026)
             daftarPertandinganFinal = [
-                { homeTeam: { name: "🇮🇹 ITALY" }, awayTeam: { name: "🇸🇦 SAUDI ARABIA" }, date: "2026-06-18" },
-                { homeTeam: { name: "🇧🇪 BELGIUM" }, awayTeam: { name: "🇩🇿 ALGERIA" }, date: "2026-06-18" },
-                { homeTeam: { name: "🇧🇷 BRAZIL" }, awayTeam: { name: "🇪🇨 ECUADOR" }, date: "2026-06-19" },
-                { homeTeam: { name: "🇺🇸 USA" }, awayTeam: { name: "🇦🇹 AUSTRIA" }, date: "2026-06-19" },
-                { homeTeam: { name: "🇦🇷 ARGENTINA" }, awayTeam: { name: "🇺🇦 UKRAINE" }, date: "2026-06-20" },
-                { homeTeam: { name: "🇫🇷 FRANCE" }, awayTeam: { name: "🇪🇬 EGYPT" }, date: "2026-06-20" },
-                { homeTeam: { name: "🇩🇪 GERMANY" }, awayTeam: { name: "🇦🇺 AUSTRALIA" }, date: "2026-06-21" },
-                { homeTeam: { name: "🇪🇸 SPAIN" }, awayTeam: { name: "🇹🇳 TUNISIA" }, date: "2026-06-21" },
-                { homeTeam: { name: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 ENGLAND" }, awayTeam: { name: "🇨🇴 COLOMBIA" }, date: "2026-06-22" },
-                { homeTeam: { name: "🇯🇵 JAPAN" }, awayTeam: { name: "🇸🇳 SENEGAL" }, date: "2026-06-22" },
-                { homeTeam: { name: "🇵🇹 PORTUGAL" }, awayTeam: { name: "🇨🇦 CANADA" }, date: "2026-06-23" },
-                { homeTeam: { name: "🇲🇽 MEXICO" }, awayTeam: { name: "🇩🇰 DENMARK" }, date: "2026-06-23" },
-                { homeTeam: { name: "🇳🇱 NETHERLANDS" }, awayTeam: { name: "🇨🇱 CHILE" }, date: "2026-06-24" },
-                { homeTeam: { name: "🇨🇲 CAMEROON" }, awayTeam: { name: "🇺🇾 URUGUAY" }, date: "2026-06-24" },
-                { homeTeam: { name: "🇭🇷 CROATIA" }, awayTeam: { name: "🇲🇦 MOROCCO" }, date: "2026-06-25" },
-                { homeTeam: { name: "🇬🇭 GHANA" }, awayTeam: { name: "🇨🇭 SWITZERLAND" }, date: "2026-06-25" }
+                // 18 Juni 2026
+                { homeTeam: { name: "🇨🇿 CZECHIA" }, awayTeam: { name: "🇿🇦 SOUTH AFRICA" }, date: "2026-06-18" },
+                { homeTeam: { name: "🇨🇭 SWITZERLAND" }, awayTeam: { name: "🇧🇦 BOSNIA HERZEGOVINA" }, date: "2026-06-18" },
+                { homeTeam: { name: "🇨🇦 CANADA" }, awayTeam: { name: "🇶🇦 QATAR" }, date: "2026-06-18" },
+                { homeTeam: { name: "🇲🇽 MEXICO" }, awayTeam: { name: "🇰🇷 SOUTH KOREA" }, date: "2026-06-18" },
+                
+                // 19 Juni 2026
+                { homeTeam: { name: "🇧🇷 BRAZIL" }, awayTeam: { name: "🇭🇹 HAITI" }, date: "2026-06-19" },
+                { homeTeam: { name: "🏴󠁧󠁢󠁳󠁣󠁴󠁿 SCOTLAND" }, awayTeam: { name: "🇲🇦 MOROCCO" }, date: "2026-06-19" },
+                { homeTeam: { name: "🇹🇷 TÜRKİYE" }, awayTeam: { name: "🇵🇾 PARAGUAY" }, date: "2026-06-19" },
+                { homeTeam: { name: "🇺🇸 USA" }, awayTeam: { name: "🇦🇺 AUSTRALIA" }, date: "2026-06-19" },
+                
+                // 20 Juni 2026
+                { homeTeam: { name: "🇳🇱 NETHERLANDS" }, awayTeam: { name: "🇸🇪 SWEDEN" }, date: "2026-06-20" },
+                { homeTeam: { name: "🇩🇪 GERMANY" }, awayTeam: { name: "🇨🇮 CÔTE D'IVOIRE" }, date: "2026-06-20" },
+                { homeTeam: { name: "🇪🇨 ECUADOR" }, awayTeam: { name: "🇨🇼 CURAÇAO" }, date: "2026-06-20" },
+                { homeTeam: { name: "🇹🇳 TUNISIA" }, awayTeam: { name: "🇯🇵 JAPAN" }, date: "2026-06-20" },
+                
+                // 21 Juni 2026
+                { homeTeam: { name: "🇺🇾 URUGUAY" }, awayTeam: { name: "🇨🇻 CABO VERDE" }, date: "2026-06-21" },
+                { homeTeam: { name: "🇪🇸 SPAIN" }, awayTeam: { name: "🇸🇦 SAUDI ARABIA" }, date: "2026-06-21" },
+                { homeTeam: { name: "🇧🇪 BELGIUM" }, awayTeam: { name: "🇮🇷 IRAN" }, date: "2026-06-21" },
+                { homeTeam: { name: "🇳🇿 NEW ZEALAND" }, awayTeam: { name: "🇪🇬 EGYPT" }, date: "2026-06-21" },
+
+                // 22 Juni 2026
+                { homeTeam: { name: "🇳🇴 NORWAY" }, awayTeam: { name: "🇸🇳 SENEGAL" }, date: "2026-06-22" },
+                { homeTeam: { name: "🇫🇷 FRANCE" }, awayTeam: { name: "🇮🇶 IRAQ" }, date: "2026-06-22" },
+                { homeTeam: { name: "🇦🇷 ARGENTINA" }, awayTeam: { name: "🇦🇹 AUSTRIA" }, date: "2026-06-22" },
+                { homeTeam: { name: "🇯🇴 JORDAN" }, awayTeam: { name: "🇩🇿 ALGERIA" }, date: "2026-06-22" },
+
+                // 23 Juni 2026
+                { homeTeam: { name: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 ENGLAND" }, awayTeam: { name: "🇬🇭 GHANA" }, date: "2026-06-23" },
+                { homeTeam: { name: "🇵🇦 PANAMA" }, awayTeam: { name: "🇭🇷 CROATIA" }, date: "2026-06-23" },
+                { homeTeam: { name: "🇵🇹 PORTUGAL" }, awayTeam: { name: "🇺🇿 UZBEKISTAN" }, date: "2026-06-23" },
+                { homeTeam: { name: "🇨🇴 COLOMBIA" }, awayTeam: { name: "🇨🇩 CONGO DR" }, date: "2026-06-23" },
+
+                // 24 Juni 2026
+                { homeTeam: { name: "🇨🇭 SWITZERLAND" }, awayTeam: { name: "🇨🇦 CANADA" }, date: "2026-06-24" },
+                { homeTeam: { name: "🇧🇦 BOSNIA HERZEGOVINA" }, awayTeam: { name: "🇶🇦 QATAR" }, date: "2026-06-24" },
+                { homeTeam: { name: "🇧🇷 BRAZIL" }, awayTeam: { name: "🏴󠁧󠁢󠁳󠁣󠁴󠁿 SCOTLAND" }, date: "2026-06-24" },
+                { homeTeam: { name: "🇲🇦 MOROCCO" }, awayTeam: { name: "🇭🇹 HAITI" }, date: "2026-06-24" },
+                { homeTeam: { name: "🇲🇽 MEXICO" }, awayTeam: { name: "🇨🇿 CZECHIA" }, date: "2026-06-24" },
+                { homeTeam: { name: "🇰🇷 SOUTH KOREA" }, awayTeam: { name: "🇿🇦 SOUTH AFRICA" }, date: "2026-06-24" },
+
+                // 25 Juni 2026
+                { homeTeam: { name: "🇪🇨 ECUADOR" }, awayTeam: { name: "🇩🇪 GERMANY" }, date: "2026-06-25" },
+                { homeTeam: { name: "🇨🇼 CURAÇAO" }, awayTeam: { name: "🇨🇮 CÔTE D'IVOIRE" }, date: "2026-06-25" },
+                { homeTeam: { name: "🇹🇳 TUNISIA" }, awayTeam: { name: "🇳🇱 NETHERLANDS" }, date: "2026-06-25" },
+                { homeTeam: { name: "🇯🇵 JAPAN" }, awayTeam: { name: "🇸🇪 SWEDEN" }, date: "2026-06-25" },
+                { homeTeam: { name: "🇺🇸 USA" }, awayTeam: { name: "🇹🇷 TÜRKİYE" }, date: "2026-06-25" },
+                { homeTeam: { name: "🇵🇾 PARAGUAY" }, awayTeam: { name: "🇦🇺 AUSTRALIA" }, date: "2026-06-25" }
             ];
             MulaiCetakDropdown("LOCAL DATA");
         }
@@ -148,9 +177,7 @@
         prosesPerhitunganPrediksi(0);
     }
 
-    // MEMPROSES KALKULASI DINAMIS & BERVARIASI (ANTI-SAMA)
     function hitungFormulaOtomatis(home, away) {
-        // Membersihkan karakter emoji bendera agar hitungan huruf murni bervariasi
         const bersihHome = home.replace(/[^\x00-\x7F]/g, "").trim();
         const bersihAway = away.replace(/[^\x00-\x7F]/g, "").trim();
         
@@ -189,10 +216,8 @@
         const rawHome = laga.homeTeam.name;
         const rawAway = laga.awayTeam.name;
 
-        // Ambil Emoji Bendera jika ada
         const flagHome = rawHome.match(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g) || "";
         
-        // Bersihkan Nama Negara Kapital
         const namaHome = rawHome.replace(/[^\x00-\x7F]/g, "").trim().toUpperCase();
         const namaAway = rawAway.replace(/[^\x00-\x7F]/g, "").trim().toUpperCase();
 
@@ -220,7 +245,6 @@
             `;
             totalHome += item.home; totalSeri += item.seri; totalAway += item.away;
             
-            // Hitung voting formula
             if(item.home > item.away && item.home > item.seri) vHome++;
             else if(item.away > item.home && item.away > item.seri) vAway++;
             else vSeri++;
@@ -234,12 +258,10 @@
         document.getElementById("rata-seri").innerText = avgSeri + "%";
         document.getElementById("rata-away").innerText = avgAway + "%";
 
-        // Set Badges ala Gambar ke-3
         document.getElementById("badge-home").innerText = `${vHome}/4 FORMULA → ${namaHome}`;
         document.getElementById("badge-seri").innerText = `${vSeri}/4 → SERI`;
         document.getElementById("badge-away").innerText = `${vAway}/4 → ${namaAway}`;
 
-        // Cari tim unggulan utama konsensus
         let pemenangKonsensus = "";
         let skorFinal = "1-1";
         if (parseFloat(avgHome) > parseFloat(avgAway) && parseFloat(avgHome) > parseFloat(avgSeri)) {
@@ -258,7 +280,6 @@
         document.getElementById("skor-header").innerText = skorFinal;
         document.getElementById("skor-raksasa").innerText = skorFinal;
 
-        // Hitung Keyakinan
         let maxP = Math.max(avgHome, avgSeri, avgAway);
         let tingkat = "KEYAKINAN SEDANG";
         if(maxP > 55) tingkat = "KEYAKINAN TINGGI";
